@@ -1,0 +1,20 @@
+machine:
+  php:
+    version: 7.0.4
+dependencies:
+  cache_directories:
+    - vendor
+    - ~/.composer/cache
+test:
+  pre:
+    - mkdir -p $CIRCLE_TEST_REPORTS/phpunit
+  override:
+    - ./vendor/bin/grumphp run
+  post:
+    - cp /tmp/junit.xml $CIRCLE_TEST_REPORTS/phpunit/junit.xml
+deployment:
+  production:
+    tag: /.*/
+    commands:
+      - vendor/bin/sculpin generate --env=prod
+      - aws s3 sync output_prod/ s3://php-api-clients.org/

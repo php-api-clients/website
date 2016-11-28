@@ -1,0 +1,11 @@
+imports:
+- sculpin_site.yml
+
+url: https://php-api-clients.org
+
+# Google Analytics
+google_analytics_tracking_id: UA-63526-25
+
+# Piwik
+piwik_host_name: piwik.wyrihaximus.net
+piwik_site_id: 18
