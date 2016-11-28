@@ -17,4 +17,4 @@ deployment:
     tag: /.*/
     commands:
       - vendor/bin/sculpin generate --env=prod
-      - aws s3 sync output_prod/ s3://php-api-clients.org/
+      - aws s3 sync output_prod/ s3://php-api-clients.org/ --region eu-central-1
