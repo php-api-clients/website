@@ -17,6 +17,7 @@
         /** quick fix because bootstrap <pre> has a background-color. */
         pre code { background-color: inherit; }
         </style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
     </head>
     <body>
         <header>
@@ -49,6 +50,9 @@
                 <div class="span4 sidebar">
                     <div class="well">
                         <h4>{{ site.title }}{% if site.subtitle %} <small>{{ site.subtitle }}</small>{% endif %}</h4>
+                    </div>
+                    <div class="well">
+                        <input type="text" id="docsearchInput" placeholder="Search Documentation" />
                     </div>
                     <div class="well sidebar-nav">
                         <h4>Links</h4>
@@ -136,5 +140,15 @@
 
         <script src="{{ site.url }}/components/highlightjs/highlight.pack.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+        <script type="text/javascript">
+            docsearch({
+                apiKey: 'b6778f299e6a897b5eac8008aa7ce608',
+                indexName: 'php-api-clients',
+                inputSelector: '#docsearchInput',
+                debug: false // Set debug to true if you want to inspect the dropdown
+            });
+        </script>
     </body>
 </html>
